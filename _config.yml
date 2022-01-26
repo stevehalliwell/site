@@ -1,1 +1,13 @@
 remote_theme: lorepirri/cayman-blog
+
+title: Steve Halliwell's Blog
+#description: Cayman Blog Theme is a clean, responsive blogging theme for Jekyll and Gitlab/GitHub Pages.
+
+# baseurl: "/cayman-blog" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
+# url: "https://lorepirri.github.io" # change this to the base hostname & protocol for your site
+
+# social
+twitter:
+  username: _stevehalliwell
+
+header_page_refs: ['contact']
