@@ -16,7 +16,7 @@ categories:
 ---
 The other CSU subject I was undertaking this semester was Mobile Application Development. In this subject we were to present an idea and explain the platform it was targeting, why and an overview of how we were going to implement it.
 
-![](/wp-content/uploads/2013/11/jsd_ps2_clipped.png)
+![](/assets/images/2013/11/jsd_ps2_clipped.png)
 
 The second was essentially a progress milestone showing off what you had accomplished in the short time, ~12 weeks but only about 8 hours a week. I managed to get a small shmup-upgrader made with Unity3D completed in this time, it is not at alpha yet but is mostly complete game loop, with all original assets created by me in Blender, Photoshop and Substance Designer.
 

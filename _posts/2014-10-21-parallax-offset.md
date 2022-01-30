@@ -36,17 +36,17 @@ inline float2 ParallaxOffset( half h, half height, half3 viewDir )
 
 No parallax
 
-![](/wp-content/uploads/2014/10/normalmaponly.jpg)
+![](/assets/images/2014/10/normalmaponly.jpg)
 
 Unity&#8217;s parallax
 
-![](/wp-content/uploads/2014/10/unity-para.jpg)
+![](/assets/images/2014/10/unity-para.jpg)
 
 That’s it. Very cheap and for low heights the effect is still impressive. But at large heights and longer objects the textures begin to slide, thing start to look like they’re made out of chrome and their texture is actually the environment map. Why? Well its not how Parallax offset mapping/parallax occlusion mapping/Steep parallax offset mapping/relief mapping etc. work. They all rely on some form of ray marching through texels of a height field/map. Basically we have some starting point, the uv being render, we then move in the view direction across the surface of the texture incrementally. The distance per step is determined by viewing angle. Each step it samples height, if the height is less, we’ve intersected the height field surface. When it can be afforded a binary search is then performed between the previous and current sample to find a more accurate height for this frag, it greatly reduces height banding. This gives us a new ‘depth’ of the frag and a uv offset to sample all other maps with. here <http://graphics.cs.brown.edu/games/SteepParallax/> and here give good overviews <http://www.gamedev.net/page/resources/_/technical/graphics-programming-and-theory/a-closer-look-at-parallax-occlusion-mapping-r3262>
 
 Parallax Offset
 
-![](/wp-content/uploads/2014/10/para.jpg)
+![](/assets/images/2014/10/para.jpg)
 
 Well occlusion had to come next didn’t it. Its expensive. It uses the same principle. Once you find the offset, you then use the same ray marching ideas to move towards the surface of the height field in the direction of the light dir. If you make it to the surface without dipping below the height then not occluded, if you do hit something the light doesn’t reach you.
 
@@ -54,7 +54,7 @@ Smoothing these out was needed, I wanted to find a cheap way to remove the misse
 
 Parallax Occlusion
 
-![](/wp-content/uploads/2014/10/para-occ.jpg)
+![](/assets/images/2014/10/para-occ.jpg)
 
 The solution is not overly accurate but it is smooth, consistent and predictable. There is little to no, sliding, popping or sparkling. Also it only works in dx11 mode in Unity. I wanted to see if it was possible using only Unity’s surface shaders instead of writing glsl or cg from scratch, it is but it means changing renderer causes it to fail, due to using tex2dgrad inside control flow statements: X6077. This strikes me as odd as I’m fairly sure what I’m doing is legal, esp since unity graphics emulation thinks it’ll work on openGL ES 2.0. It might be pure related to Unity’s conversion from surface shader to cg is renderer dependant and is stumbling somewhere.
 
@@ -67,11 +67,11 @@ After much fiddling with tuning paras, like min and max steps, I was happy… fo
 
 Directional Ambient Occlusion
 
-![](/wp-content/uploads/2014/10/amb-dir-only.jpg)
+![](/assets/images/2014/10/amb-dir-only.jpg)
 
 Final result.
 
-![](/wp-content/uploads/2014/10/all.jpg)
+![](/assets/images/2014/10/all.jpg)
 
 This is by no means the best, most complete or most performant way to accomplish these tasks. Displacement mapping would most likely be much faster and produce smoother results.
 
@@ -81,18 +81,18 @@ Different angle
 
 Normal map only
 
-![](/wp-content/uploads/2014/10/none-skew.jpg)
+![](/assets/images/2014/10/none-skew.jpg)
 
 &nbsp;
 
 Unity Parallax
 
-![](/wp-content/uploads/2014/10/unity-skew.jpg)
+![](/assets/images/2014/10/unity-skew.jpg)
 
 &nbsp;
 
 Parallax Occlusion with Directional Ambient
 
-![](/wp-content/uploads/2014/10/para-all-skew.jpg)
+![](/assets/images/2014/10/para-all-skew.jpg)
 
 &nbsp;

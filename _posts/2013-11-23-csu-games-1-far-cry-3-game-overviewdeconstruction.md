@@ -17,7 +17,7 @@ categories:
 ---
 I&#8217;ve tided up the folder containing all the work I did for one of the earlier assessments for my CSU Games subject, the goal was to choose a AAA game and identify and analyse its basic elements; Dramatic, systematic and gameplay.
 
-![](/wp-content/uploads/2013/11/fc3fireArmPS-300x96.png)
+![](/assets/images/2013/11/fc3fireArmPS-300x96.png)
 
 This was done primarily by following the prescribed text [_Game Design Workshop: A Playcentric Approach_](http://www.amazon.com/Game-Design-Workshop-Playcentric-Innovative/dp/0240809742) and also some other basic ideas; concept docs, _Caillois_'s [modes of play](http://books.google.com.au/books?id=mQfIAAAACAAJ&redir_esc=y), extended version of _Bartle's_ player types, _Koster_'s [Theory of fun](http://www.theoryoffun.com/) and an attempt at using _[Dan Cook&#8217;s Skill Atoms](http://www.gamasutra.com/view/feature/129948/the_chemistry_of_game_design.php?page=3) I was fairly pleased with the result.
 

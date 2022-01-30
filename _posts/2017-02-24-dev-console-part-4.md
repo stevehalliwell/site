@@ -12,7 +12,7 @@ dsq_thread_id:
   - "5784042659"
 et_enqueued_post_fonts:
   - 'a:2:{s:6:"family";a:2:{s:21:"et-gf-source-sans-pro";s:100:"Source+Sans+Pro:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,900,900italic";s:10:"et-gf-lato";s:75:"Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic";}s:6:"subset";a:7:{i:0;s:8:"cyrillic";i:1;s:5:"greek";i:2;s:10:"vietnamese";i:3;s:5:"latin";i:4;s:9:"greek-ext";i:5;s:9:"latin-ext";i:6;s:12:"cyrillic-ext";}}'
-image: /wp-content/uploads/2017/02/console-auto-completea-1.gif
+image: /assets/images/2017/02/console-auto-completea-1.gif
 categories:
   - Blog
 ---
@@ -34,7 +34,7 @@ I also made a handful of small changes to CUDLR;
 
 That&#8217;s great but lets talk autocomplete. The previous default behavior in the browser is you hit tab, and it uses the Complete method which returns an array of all partial matches. If there is only 1 partial match then replace the input box with that text. I wanted a bit more, if I type &#8216;ti&#8217; and the only partial match is &#8216;Time&#8217; then I run another auto complete on Time so it gives me a list of all the sub commands within the holder.
 
-![](/wp-content/uploads/2017/02/console-auto-completea-1.gif) 
+![](/assets/images/2017/02/console-auto-completea-1.gif) 
 
 Similarly, if I type &#8216;phy&#8217; but I have &#8216;Physics&#8217; and &#8216;Physics2D&#8217;, I don&#8217;t want to have to type the &#8216;sics&#8217;. It should be smart enough to complete that part for me. I use something similar to this to determine it.
 
@@ -64,11 +64,11 @@ Similarly, if I type &#8216;phy&#8217; but I have &#8216;Physics&#8217; and &#82
     return startingIndex;
 }</pre>
 
-![](/wp-content/uploads/2017/02/console-auto-complete.gif)
+![](/assets/images/2017/02/console-auto-complete.gif)
 
 I found some fun consequences of being able to automatically map objects and statics to the console, much of CUDLR.Console is static, so we can add the console to the console. Which means that we can run console commands via the console. Right now not overly useful, but I really enjoy that it just works and it may become useful if we push the console further towards a way of configuring and creating behaviours.
 
-![](/wp-content/uploads/2017/02/console-run-console.gif)
+![](/assets/images/2017/02/console-run-console.gif)
 
 I was also able to get the console to add new types to itself at runtime. I enter this into the console.
 
@@ -89,7 +89,7 @@ public static void AddStaticTypeByString(string typeName)
     AID.ConsoleHelper.AddAllStaticsToConsole(t);
 }</pre>
 
-![](/wp-content/uploads/2017/02/console-add-type-runtime.gif)
+![](/assets/images/2017/02/console-add-type-runtime.gif)
 
 This is crazy, we could now remotely connect to a running game via the browser, make it expose static data to us (as long as we know the full class name and the assembly it comes from). Without us even considering that we might have wanted to do that at build time. This also means that if ports are open you could play some amazing pranks on your colleagues. More practically it means you could have different sets of console commands exposed by default to different team members, eg artist wants lots of graphics and light settings exposed by don&#8217;t want to wade through physics or game balance data. But the moment they want access to other things they can add that to their console. It would might help in, &#8220;Um, can you come look at this weird thing&#8221; type situations, having another team member come over and add the elements to the console that they are used to and dig in to find out what is happening, they could also do this remotely, just post your IP in a slack channel.
 
