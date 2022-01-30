@@ -17,7 +17,7 @@ categories:
 ---
 The last project style assessment the Games subject had was a physical game prototype and high concept document. Since making a physical (paper) prototype was mandated I choose to create a card game. This was spurred on by primarily playing <a class="vt-p" href="http://solforgegame.com/" target="_blank">SolForge </a>on iOS and seeing others play <a class="vt-p" href="http://store.steampowered.com/app/97330/" target="_blank">Magic: Duels of the planeswalkers</a>, <a class="vt-p" href="http://us.battle.net/hearthstone/en/" target="_blank">HearthStone </a>etc.
 
-[<img loading="lazy" class="alignnone size-medium wp-image-185" alt="card game play test" src="http://stevehalliwell.com/wp-content/uploads/2013/11/card-game-play-test-225x300.jpg" width="225" height="300" srcset="http://stevehalliwell.com/wp-content/uploads/2013/11/card-game-play-test-225x300.jpg 225w, http://stevehalliwell.com/wp-content/uploads/2013/11/card-game-play-test.jpg 276w" sizes="(max-width: 225px) 100vw, 225px" />](http://stevehalliwell.com/wp-content/uploads/2013/11/card-game-play-test.jpg){.vt-p}
+![card-game-play-test](/wp-content/uploads/2013/11/card-game-play-test.jpg)
 
 I approached this by creating a game that is a chaotic collision of Solforge&#8217;s combat, deck building (a la Dominion) and the joy of being a jerk in games like Uno.
 

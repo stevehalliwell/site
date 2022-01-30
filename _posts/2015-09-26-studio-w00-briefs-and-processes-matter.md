@@ -35,7 +35,7 @@ categories:
 
 The plan is for a blog to go up each week. At times it may seem a bit cagey; as this is public and available to students I don’t want to spoil any of their surprises.
 
-## Let’s dive in. {.p1}
+## Let’s dive in. 
 
 <p class="p1">
   At this point in time, the big milestones locked are in, we know:
@@ -51,7 +51,7 @@ The plan is for a blog to go up each week. At times it may seem a bit cagey; as 
   when they will have design interventions, etc.
 </li>
 
-## Project structure {.p1}
+## Project structure 
 
 <p class="p1">
   The Basic structure of any non trivial project we do, is:
@@ -234,7 +234,7 @@ Orienting students to the potentially vastly different environment of studio is 
   So the overall structure of Studio 1 is well understood by us at this point, has enough flexibility for us to move things around to suit the cohort and fit in structured content if needed. Students have a very clear picture of what the immediate schedule is for the current project. Beyond that they know that there about big things, like when projects are intended to start and end, but these are intentionally vague so there is slack built into the schedule.
 </p>
 
-## Our projects {.p1}
+## Our projects 
 
 <p class="p1">
   Project 1 is solo and only 1 week long, it’s a good framing device for acclimatising students to what studio workload is like. The content of the unit itself and gives them a chance to make a decent chunk of progress on a wide variety of LOs (Learning Outcomes). This also assists us with determining groups for the upcoming group projects, so we can take into account students strengths, preferences, existing relationships and areas of interest.
@@ -244,7 +244,7 @@ Orienting students to the potentially vastly different environment of studio is 
   Project 2 will focus on dynamics will be in groups, last for 4-5 weeks with play testing in the middle. Project 3 the same but focus on aesthetics.
 </p>
 
-## What&#8217;s next? {.p1}
+## What&#8217;s next? 
 
 <p class="p1">
   Next week we&#8217;ll talk about rituals, pitches, feedback mechanisms, brainstorming, and probably more.

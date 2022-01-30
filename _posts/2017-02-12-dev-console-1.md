@@ -21,9 +21,7 @@ categories:
   So I was working on a project that targets mobile and I&#8217;d run into a problem that didn&#8217;t replicate in editor or on Android, only on iOS. I really just wanted to put a bunch of logs in and see what was happening. I wanted an in game dev console. If you aren&#8217;t sure what I mean by that, if you&#8217;ve played with an Id or Valve game you&#8217;ve probably enabled developer console at some point, seen logs pop up in the top left or hit ` to change maps or enable net_graph.
 </p>
 
-<p>
-  <img loading="lazy" class="aligncenter size-full wp-image-737" src="http://stevehalliwell.com/wp-content/uploads/2017/02/halflife1console.jpg" alt="" width="1022" height="767" srcset="http://stevehalliwell.com/wp-content/uploads/2017/02/halflife1console.jpg 1022w, http://stevehalliwell.com/wp-content/uploads/2017/02/halflife1console-300x225.jpg 300w, http://stevehalliwell.com/wp-content/uploads/2017/02/halflife1console-768x576.jpg 768w, http://stevehalliwell.com/wp-content/uploads/2017/02/halflife1console-510x382.jpg 510w" sizes="(max-width: 1022px) 100vw, 1022px" />
-</p>
+![](/wp-content/uploads/2017/02/halflife1console.jpg)
 
 <p>
   Similarly, Bethesda games tend to have powerful in game consoles that can execute the same sort of commands as the scripting language. Which leads to amazing things like this <a href="https://www.youtube.com/watch?v=_1jGnFt78H8">Monster Factory Fallout4</a>.

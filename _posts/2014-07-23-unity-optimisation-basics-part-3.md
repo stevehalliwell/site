@@ -30,7 +30,7 @@ If you guessed any of them, you are wrong. That&#8217;s right, calling them 1000
 
 So the compiler optimised out the literal string for us, that&#8217;s good to know. Lets look at the profile results.
 
-[<img loading="lazy" class="alignnone size-full wp-image-469" src="http://stevehalliwell.com/wp-content/uploads/2014/07/tagtest.png" alt="tagtest" width="686" height="361" srcset="http://stevehalliwell.com/wp-content/uploads/2014/07/tagtest.png 686w, http://stevehalliwell.com/wp-content/uploads/2014/07/tagtest-300x157.png 300w" sizes="(max-width: 686px) 100vw, 686px" />](http://stevehalliwell.com/wp-content/uploads/2014/07/tagtest.png){.vt-p}
+![](/wp-content/uploads/2014/07/tagtest.png)
 
 J&#8217;accuse. Everything is allocing but CompareTag, the method in gameobject that is recommended by Unity as the method to, you guessed it, compare tags. Where at all possible use CompareTag. the GC is your enemy. It&#8217;s an interesting situation. The alloc comes from get_tag(), which is triggered by the .tag property, which could be a call to unity native code that results in a mono string being created or just due to the immutable nature of strings in mono. I know I&#8217;m guilty of it too but if you can find a .tag anywhere in your code base do your darnedest to get rid of it.
 
@@ -52,7 +52,7 @@ txt.text = string.Format("Wave: {0} of {1}", lvl.curIndex, lvl.infos.Count);</pr
 
 Format looks nicer, kinda, probably a lot if you like printf.
 
-[<img loading="lazy" class="alignnone size-full wp-image-470" src="http://stevehalliwell.com/wp-content/uploads/2014/07/stringtest.png" alt="stringtest" width="673" height="324" srcset="http://stevehalliwell.com/wp-content/uploads/2014/07/stringtest.png 673w, http://stevehalliwell.com/wp-content/uploads/2014/07/stringtest-300x144.png 300w, http://stevehalliwell.com/wp-content/uploads/2014/07/stringtest-672x324.png 672w" sizes="(max-width: 673px) 100vw, 673px" />](http://stevehalliwell.com/wp-content/uploads/2014/07/stringtest.png){.vt-p}
+![](/wp-content/uploads/2014/07/stringtest.png)
 
 Well crap, Format is out, it&#8217;s the slowest and the most trashy. StringBuilder vs regular concatenation is a bit trickier. For my purposes I can avoid calling the function for all but when the current wave actually changes, so less than once a second, keeping the alloc as low as possible suits me.
 
