@@ -51,18 +51,18 @@ I was doing a little bit of hunting around to find more on the cost of GameObjec
 This section is 3 methods running simultaneously so you can visualise the ratio of performance they require.
 
 First up Instantiate and Destroy 100 simple boxes with RigidBody every frame.
-![](/assets/images/2014/07/all_instHiLi.gif)
-![](/assets/images/2014/07/all_destHiLi.gif)
+![](../assets/images/2014/07/all_instHiLi.gif)
+![](../assets/images/2014/07/all_destHiLi.gif)
 I&#8217;ve highlighted the Destroy here too. Its separate as Destroy seems to add the item to a list Unity keeps internally and handles next frame (as I understand it.). Most of the memory here seems to be in native land not in GC land but we are still generating some garbage. Its also responsible for a big chunk of the &#8216;Other&#8217; time, which I can only assume is Unity native code creating the GO, components and serialise, deserialising from the prefab.
 
 Next, Deactivate 100 in a list, activate the next 100 in the list. This occilates each frame. This is the basics of an Object Pool.
 
-![](/assets/images/2014/07/all_activateHiLi.gif)
+![](../assets/images/2014/07/all_activateHiLi.gif)
 Not a crazy amount faster but it is faster and there is no Destroy and no GC to speak of.
 
 Ok lets try this enable disable trick.
 
-![](/assets/images/2014/07/all_endisHiLi.gif):O
+![](../assets/images/2014/07/all_endisHiLi.gif):O
 
 &nbsp;
 
@@ -70,26 +70,26 @@ Lets see them in isolation.
 
 Instantiate and Destroy &#8211; 9.3ms to 10.3ms
 
-![](/assets/images/2014/07/solo_instNoGC.gif)Inst without the GC showing
+![](../assets/images/2014/07/solo_instNoGC.gif)Inst without the GC showing
 
-![](/assets/images/2014/07/solo_instGC.gif)Inst WITH the GC showing, ouch.
+![](../assets/images/2014/07/solo_instGC.gif)Inst WITH the GC showing, ouch.
 
 &nbsp;
 
 Activate/Deactivate &#8211; 6.7ms to 8.9ms
 
-![](/assets/images/2014/07/solo_act.gif)Not as good as we&#8217;d like but definitely better and no GC.
+![](../assets/images/2014/07/solo_act.gif)Not as good as we&#8217;d like but definitely better and no GC.
 
 &nbsp;
 
 Enable/Disable on collider and renderer &#8211; 2.5ms to 3.0ms
 
-![](/assets/images/2014/07/solo_endisMinamal.gif)Little bit of GC but this is insanely good, what&#8217;s going on.
+![](../assets/images/2014/07/solo_endisMinamal.gif)Little bit of GC but this is insanely good, what&#8217;s going on.
 
 Enable/Disable Generlised &#8211; 8.3ms &#8211; 15ms  
 Here I add the 2d variants, audio and animator components to the mix to create a more general solution, not the object being made just to the enable disable code, as activate/deactivate and instantiate/destroy would handle any combo and any number of components. In real world it would need any scripts you&#8217;ve added to the component to be disabled too, most likely.
 
-![](/assets/images/2014/07/solo_endisGeneral.gif)
+![](../assets/images/2014/07/solo_endisGeneral.gif)
 
 GC is going crazy due to all of the GetComponent, remember that .rigidbody or .audio etc. are properties that basically end up calling GetComponent.
 
@@ -98,7 +98,7 @@ Ok, so once we try to extend the enable/disable trick to a more general solution
 For the sake of science I tested this same set up for all modes with 10 and 500 cubes. Physics engine didn&#8217;t much care for 500 each, it actially made GameObject.Activate way more expensive than anything else. But the test was running at fractions of an fps due to way too many overlapping cubes.
 
 With 10, it tells a different story.
-![](/assets/images/2014/07/all_10obj.png)
+![](../assets/images/2014/07/all_10obj.png)
 
 Yes the order of best is the same, Inst about .8ms, Act about 0.7ms, Enab about 0.4ms. But those spikes, those spikes are where the Enable/Disable takes 7ms, yes SEVEN up from 0.4. It&#8217;s entirely down to it triggering a GC collect.
 

@@ -87,11 +87,11 @@ function asMark(data)
 
 Allows things like ;
 
-![asMarkSample](/assets/images/2013/07/asMarkSample.png)
+![asMarkSample](../assets/images/2013/07/asMarkSample.png)
 
 Using grades per section currently feels much more natural than trying to use a [Likert scale](https://en.wikipedia.org/wiki/Likert_scale) or number out of 100 ends up being too limiting, too open or tends towards odd clumping. Also the ease of putting in basic statistics on the grades as they are emerging is a very useful self moderator and easy way to compare marking between multiple graders. That can be done in Excel or OpenOffice Calc or Google Spreadsheets but the following is a bit unique to spreadsheets.
 
-![gradeSummary](/assets/images/2013/07/gradeSummary.png)
+![gradeSummary](../assets/images/2013/07/gradeSummary.png)
 
 First the squiggly. Its a SparkLine, that&#8217;s drawing the frequency of certain grades. Here&#8217;s the code in the cell;
 

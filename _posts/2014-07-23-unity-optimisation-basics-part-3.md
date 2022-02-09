@@ -30,7 +30,7 @@ If you guessed any of them, you are wrong. That&#8217;s right, calling them 1000
 
 So the compiler optimised out the literal string for us, that&#8217;s good to know. Lets look at the profile results.
 
-![](/assets/images/2014/07/tagtest.png)
+![](../assets/images/2014/07/tagtest.png)
 
 J&#8217;accuse. Everything is allocing but CompareTag, the method in gameobject that is recommended by Unity as the method to, you guessed it, compare tags. Where at all possible use CompareTag. the GC is your enemy. It&#8217;s an interesting situation. The alloc comes from get_tag(), which is triggered by the .tag property, which could be a call to unity native code that results in a mono string being created or just due to the immutable nature of strings in mono. I know I&#8217;m guilty of it too but if you can find a .tag anywhere in your code base do your darnedest to get rid of it.
 
@@ -52,7 +52,7 @@ txt.text = string.Format("Wave: {0} of {1}", lvl.curIndex, lvl.infos.Count);</pr
 
 Format looks nicer, kinda, probably a lot if you like printf.
 
-![](/assets/images/2014/07/stringtest.png)
+![](../assets/images/2014/07/stringtest.png)
 
 Well crap, Format is out, it&#8217;s the slowest and the most trashy. StringBuilder vs regular concatenation is a bit trickier. For my purposes I can avoid calling the function for all but when the current wave actually changes, so less than once a second, keeping the alloc as low as possible suits me.
 
