@@ -24,7 +24,7 @@ It bothered me that my previous AddStaticTypeByString required you to know the 
 
 The big thing I wanted to be able to do is map game data to the console. For me, in Unity, this is typically a [ScriptableObject](https://docs.unity3d.com/ScriptReference/ScriptableObject.html) or something a bit fancier. The concept is the same though, there is some object with data that other classes refer to that defines common values. For this I needed to refactor my previous ConsoleHelper Add* to support object instances. Not a big deal, all the Reflection functions in use want an object, we&#8217;d just been giving them a null as everything was static previously, now it&#8217;s just lots of passing object down. This also meant that if you pass an object you don&#8217;t need to pass type and if you pass a type we could assume it was static if we wanted to.
 
-![](/assets/images/2017/03/console-instance-value.gif) 
+![](../assets/images/2017/03/console-instance-value.gif) 
 
 In a more complex terminal window hitting tab repeatedly will cycle through all the possible things you could be trying to type. I have only attempted to get this working from within the App and not via the Browser. To achieve this I&#8217;m now keeping the result[] from a call to the complete function and if the autocomplete is requested again before changing the partial phrase we move the index forward through the cached result array and show that text. In the Unity Text we are replacing the text and keeping the current cursor position and setting the cursor end position to the end of the string. There are still some edge cases that are unhandled given my simplistic approach, like moving the cursor manually not resetting the array of autocompletes.
 
